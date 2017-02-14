@@ -1,0 +1,22 @@
+<h1>Home</h1>
+<% @tasks.each do |task| %>
+  <h2><%= task.name %></h2>
+  <p><%= task.content %></p>
+  <p><%= task.done %></p>
+  <%= link_to "Voir plus", task_path(task) %>
+  <%= link_to "edit", edit_task_path(task) %>
+  <%= link_to "Delete", task_path(task),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+<% end %>
+
+<h2> <%= link_to "write a new task !", new_task_path(@tasks)  %> </h2>
+
+
+
+<!-- Should display a list of all tasks and, for each task:
+a link to its show view (use a link_to helper)
+a link to its edit view
+a link to its delete action. Hint: a standard link does not allow to perform DELETE request, so here you should add a method: :delete option to your link_to helper.
+Should include a link to the new view to create a new task
+ -->
